@@ -66,6 +66,9 @@ module SynapsePayRest
 		def create(payload: raise("payload is required"))
 			path = create_user_path()
 			response = @client.post(path, payload)
+			if response.has_key?('_id')
+				@client.update_headers(user_id: response['_id'])
+			end
 			return response
 		end
 
