@@ -34,3 +34,6 @@ build/
 
 # unless supporting rvm < 1.11.0 or doing something fancy, ignore this:
 .rvmrc
+
+# don't check in mac specific files
+.DS_Store
