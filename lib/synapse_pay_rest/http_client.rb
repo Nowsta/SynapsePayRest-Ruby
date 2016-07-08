@@ -91,20 +91,21 @@ module SynapsePayRest
         return e.response
       when 409
         return e.response
-      when 500
-        return e.response
       when 405
         return handle_method_not_allowed()
+      when 500
+        return handle_internal_server_error()
       when 502
-        #Raise a gateway error
         return handle_gateway_error()
       when 504
-        #Raise a timeout error
         return handle_timeout_error()
       else
-        #Raise a generic error
         return handle_unknown_error()
       end
+    end
+
+    def handle_internal_server_error()
+      return {'success' => false, 'reason' => 'Our payments service is currently down. Please try again in a minute.'}.to_json
     end
 
     def handle_method_not_allowed()
@@ -112,7 +113,7 @@ module SynapsePayRest
     end
 
     def handle_gateway_error()
-      return {'success' => false, 'reason' => 'The gateway appears to be down.  Check synapsepay.com or try again later.'}.to_json
+      return {'success' => false, 'reason' => 'Our payments service is currently down. Please try again in a minute.'}.to_json
     end
 
     def handle_timeout_error()
@@ -120,7 +121,7 @@ module SynapsePayRest
     end
 
     def handle_unknown_error()
-      return {'success' => false, 'reason' => 'Unknown error in library. Contact synapsepay.'}.to_json
+      return {'success' => false, 'reason' => 'An unexpected error has occured. Please try again in a minute.'}.to_json
     end
   end
 end
