@@ -52,49 +52,76 @@ module SynapsePayRest
 
     def post(path, payload)
       url = base_url + path
-      response = begin
-        RestClient.post(url,
-          payload.to_json,
-          @headers)
-      rescue Exception => e
-        return JSON.parse(e.response)
-      end
-      return JSON.parse(response)
+      response = with_error_handling { RestClient.post(url, payload.to_json, @headers) }
+      JSON.parse(response)
     end
 
     def patch(path, payload)
       url = base_url + path
-      response = begin
-        RestClient.patch(url,
-          payload.to_json,
-          @headers)
-      rescue Exception => e
-        puts url
-        return JSON.parse(e.response)
-      end
-      return JSON.parse(response)
+      response = with_error_handling { RestClient.patch(url, payload.to_json, @headers) }
+      JSON.parse(response)
     end
 
     def get(path)
       url = base_url + path
-      response = begin
-        RestClient.get(url,
-          @headers)
-      rescue Exception => e
-        return JSON.parse(e.response)
-      end
-      return JSON.parse(response)
+      response = with_error_handling { RestClient.get(url, @headers) }
+      JSON.parse(response)
     end
 
     def delete(path)
       url = base_url + path
-      response = begin
-        RestClient.delete(url,
-          @headers)
-      rescue Exception => e
-        return JSON.parse(e.response)
+      response = with_error_handling { RestClient.delete(url, @headers) }
+      JSON.parse(response)
+    end
+
+    private
+
+    def with_error_handling
+      yield
+    rescue => e
+      # By the way, this is a really bad idea.
+      # See: https://www.relishapp.com/womply/ruby-style-guide/docs/exceptions
+      # The exceptions should be enumerated. Not all exceptions are going
+      # to be parsable by JSON. The only one that should be captured are the
+      # are the HTTP Client responses.
+      case e.response.code
+      when 400
+        return e.response
+      when 401
+        return e.response
+      when 409
+        return e.response
+      when 405
+        return handle_method_not_allowed()
+      when 500
+        return handle_internal_server_error()
+      when 502
+        return handle_gateway_error()
+      when 504
+        return handle_timeout_error()
+      else
+        return handle_unknown_error()
       end
-      return JSON.parse(response)
+    end
+
+    def handle_internal_server_error()
+      return {'success' => false, 'reason' => 'Our payments service is currently down. Please try again in a minute.'}.to_json
+    end
+
+    def handle_method_not_allowed()
+      return {'success' => false, 'reason' => 'The method is not allowed. Check your id parameters.'}.to_json
+    end
+
+    def handle_gateway_error()
+      return {'success' => false, 'reason' => 'Our payments service is currently down. Please try again in a minute.'}.to_json
+    end
+
+    def handle_timeout_error()
+      return {'success' => false, 'reason' => 'A timeout has occurred.'}.to_json
+    end
+
+    def handle_unknown_error()
+      return {'success' => false, 'reason' => 'An unexpected error has occured. Please try again in a minute.'}.to_json
     end
   end
 end
