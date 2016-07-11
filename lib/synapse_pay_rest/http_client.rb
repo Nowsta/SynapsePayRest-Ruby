@@ -52,29 +52,38 @@ module SynapsePayRest
 
     def post(path, payload)
       url = base_url + path
-      response = with_error_handling { RestClient.post(url, payload.to_json, @headers) }
+      response = with_error_handling do
+        make_request(method: :post, url: url, payload: payload.to_json)
+      end
       JSON.parse(response)
     end
 
     def patch(path, payload)
       url = base_url + path
-      response = with_error_handling { RestClient.patch(url, payload.to_json, @headers) }
+      response = with_error_handling do
+        make_request(method: :patch, url: url, payload: payload.to_json)
+      end
       JSON.parse(response)
     end
 
     def get(path)
       url = base_url + path
-      response = with_error_handling { RestClient.get(url, @headers) }
+      response = with_error_handling { make_request(method: :get, url: url) }
       JSON.parse(response)
     end
 
     def delete(path)
       url = base_url + path
-      response = with_error_handling { RestClient.delete(url, @headers) }
+      response = with_error_handling { make_request(method: :delete, url: url) }
       JSON.parse(response)
     end
 
     private
+
+    def make_request(options)
+      base_options = { headers: @headers }
+      RestClient::Request.execute(base_options.merge(options))
+    end
 
     def with_error_handling
       yield

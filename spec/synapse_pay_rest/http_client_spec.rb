@@ -9,9 +9,9 @@ RSpec.describe do
     it "calls the correct rest client method" do
       allow(RestClient::Request).to receive(:execute).and_return('{}')
       args = ['']
-      args << paylod if payload
+      args << payload if payload
       client.method(method).call(*args)
-      expect(RestClient::Request).  to have_received(:execute).
+      expect(RestClient::Request).to have_received(:execute).
         with(hash_including(method: method))
     end
   end
