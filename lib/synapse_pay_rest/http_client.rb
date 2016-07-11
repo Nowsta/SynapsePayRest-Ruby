@@ -10,6 +10,7 @@ module SynapsePayRest
     attr_accessor :timeout
 
     def initialize(options, base_url, user_id: nil)
+      @timeout = 1
       @options = options
       user = '|%s' % options['fingerprint']
       if options.has_key?('oauth_key')
