@@ -10,7 +10,7 @@ module SynapsePayRest
 
     def initialize(options, base_url, user_id: nil)
       @options = options
-      user = '|%s' %options['fingerprint']
+      user = '|%s' % options['fingerprint']
       if options.has_key?('oauth_key')
         user = '%s|%s' % [options['oauth_key'], options['fingerprint']]
       end
