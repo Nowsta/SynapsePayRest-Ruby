@@ -7,6 +7,7 @@ module SynapsePayRest
     attr_accessor :options
     attr_accessor :headers
     attr_accessor :user_id
+    attr_accessor :timeout
 
     def initialize(options, base_url, user_id: nil)
       @options = options
@@ -82,6 +83,7 @@ module SynapsePayRest
 
     def make_request(options)
       base_options = { headers: @headers }
+      base_options[:timeout] = timeout if timeout
       RestClient::Request.execute(base_options.merge(options))
     end
 
