@@ -1,0 +1,216 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://sandbox.synapsepay.com/api/3/users
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - application/json
+      Accept-Encoding:
+      - gzip, deflate
+      User-Agent:
+      - rest-client/2.0.0 (darwin15.0.0 x86_64) ruby/2.2.3p173
+      Content-Type:
+      - application/json
+      X-Sp-Gateway:
+      - e3f19e4bd4022c86e7f2|11c94ba6bad74d24a0158bc707f0fc19a86dc08f
+      X-Sp-User:
+      - "|e716990e50b67a1177736960b6357524b22090ccab093d068b3d7a18dbde3f4c"
+      X-Sp-User-Ip:
+      - 107.170.246.225
+      Host:
+      - sandbox.synapsepay.com
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - nginx
+      Date:
+      - Tue, 12 Jul 2016 22:48:05 GMT
+      Content-Type:
+      - application/json
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Vary:
+      - Accept
+      X-Frame-Options:
+      - ALLOWALL
+      Cache-Control:
+      - no-cache
+      Strict-Transport-Security:
+      - max-age=63072000
+    body:
+      encoding: UTF-8
+      string: '{"error_code": "0", "http_code": "200", "page": 1, "page_count": 288,
+        "success": true, "users": [{"_id": "55c0ad4b86c2734e0e866da8", "_links": {"self":
+        {"href": "https://sandbox.synapsepay.com/api/3/users/55c0ad4b86c2734e0e866da8"}},
+        "client": {"id": 844, "name": "SynapsePay*Sandbox"}, "doc_status": {"physical_doc":
+        "SUBMITTED|VALID", "virtual_doc": "SUBMITTED|VALID"}, "documents": [], "extra":
+        {"cip_tag": 1, "date_joined": 1438690635321, "extra_security": true, "is_business":
+        true, "supp_id": "122eddfgbeafrfvbbb"}, "is_hidden": false, "legal_names":
+        ["Bryan Keltner", "Test1 CO"], "logins": [{"email": "test1@synapsepay.com",
+        "scope": "READ_AND_WRITE"}], "permission": "UNVERIFIED", "phone_numbers":
+        ["218545332321"], "photos": [], "refresh_token": "7a3YqKhd9RdRIl5fVjmGJidtLW1RhYGsNZFntZwV"},
+        {"_id": "55c0adc786c2734e0e866daa", "_links": {"self": {"href": "https://sandbox.synapsepay.com/api/3/users/55c0adc786c2734e0e866daa"}},
+        "client": {"id": 844, "name": "SynapsePay*Sandbox"}, "doc_status": {"physical_doc":
+        "SUBMITTED|VALID", "virtual_doc": "SUBMITTED|VALID"}, "documents": [], "extra":
+        {"cip_tag": 1, "date_joined": 1438690759718, "extra_security": true, "is_business":
+        true, "supp_id": "122eddfgbeafrfvbbb"}, "is_hidden": false, "legal_names":
+        ["Bryan Keltner", "Test1 CO"], "logins": [{"email": "test1@synapsepay.com",
+        "scope": "READ_AND_WRITE"}], "permission": "UNVERIFIED", "phone_numbers":
+        ["218545332321"], "photos": [], "refresh_token": "DIUMJhTQSCmFXdoxeFClQWpyzaYn72nfL9OVEoa1"},
+        {"_id": "55c0bd9986c273692899beb7", "_links": {"self": {"href": "https://sandbox.synapsepay.com/api/3/users/55c0bd9986c273692899beb7"}},
+        "client": {"id": 844, "name": "SynapsePay*Sandbox"}, "doc_status": {"physical_doc":
+        "SUBMITTED|VALID", "virtual_doc": "SUBMITTED|VALID"}, "documents": [], "extra":
+        {"cip_tag": 1, "date_joined": 1438694809162, "extra_security": true, "is_business":
+        true, "supp_id": "122eddfgbeafrfvbbb"}, "is_hidden": false, "legal_names":
+        ["Bryan Keltner", "Test1 CO"], "logins": [{"email": "test1@synapsepay.com",
+        "scope": "READ_AND_WRITE"}], "permission": "UNVERIFIED", "phone_numbers":
+        ["218545332321"], "photos": [], "refresh_token": "lIRYJNzhF8DTnwtrdnGOeFlKw91xnVxa1NMHKabf"},
+        {"_id": "55c0be0486c2736747455cf3", "_links": {"self": {"href": "https://sandbox.synapsepay.com/api/3/users/55c0be0486c2736747455cf3"}},
+        "client": {"id": 844, "name": "SynapsePay*Sandbox"}, "doc_status": {"physical_doc":
+        "SUBMITTED|VALID", "virtual_doc": "SUBMITTED|VALID"}, "documents": [], "extra":
+        {"cip_tag": 1, "date_joined": 1438694916089, "extra_security": true, "is_business":
+        true, "supp_id": "122eddfgbeafrfvbbb"}, "is_hidden": false, "legal_names":
+        ["Bryan Keltner", "Test1 CO"], "logins": [{"email": "test1@synapsepay.com",
+        "scope": "READ_AND_WRITE"}], "permission": "UNVERIFIED", "phone_numbers":
+        ["218545332321"], "photos": [], "refresh_token": "5LQFsHhiJ5PUyMZoZnQgBhzYagcVtpKPuZDaUykW"},
+        {"_id": "55c0bed986c273692899beba", "_links": {"self": {"href": "https://sandbox.synapsepay.com/api/3/users/55c0bed986c273692899beba"}},
+        "client": {"id": 844, "name": "SynapsePay*Sandbox"}, "doc_status": {"physical_doc":
+        "SUBMITTED|VALID", "virtual_doc": "SUBMITTED|VALID"}, "documents": [], "extra":
+        {"cip_tag": 1, "date_joined": 1438695129378, "extra_security": true, "is_business":
+        true, "supp_id": "122eddfgbeafrfvbbb"}, "is_hidden": false, "legal_names":
+        ["Bryan Keltner", "Test1 CO"], "logins": [{"email": "test1@synapsepay.com",
+        "scope": "READ_AND_WRITE"}], "permission": "UNVERIFIED", "phone_numbers":
+        ["218545332321"], "photos": [], "refresh_token": "xvUWpvEGRAhB2N3lXMLnFizZ9jgfVPfIIH5CjmUL"},
+        {"_id": "55c0c02e86c2736747455cf5", "_links": {"self": {"href": "https://sandbox.synapsepay.com/api/3/users/55c0c02e86c2736747455cf5"}},
+        "client": {"id": 844, "name": "SynapsePay*Sandbox"}, "doc_status": {"physical_doc":
+        "SUBMITTED|VALID", "virtual_doc": "SUBMITTED|VALID"}, "documents": [], "extra":
+        {"cip_tag": 1, "date_joined": 1438695470768, "extra_security": true, "is_business":
+        true, "supp_id": "122eddfgbeafrfvbbb"}, "is_hidden": false, "legal_names":
+        ["Bryan Keltner", "Test1 CO"], "logins": [{"email": "admin@callupcontact.com",
+        "scope": "READ_AND_WRITE"}], "permission": "UNVERIFIED", "phone_numbers":
+        ["218545332321"], "photos": [], "refresh_token": "nQJGsghc8gZe1WGMUeELDhGEdheviXJKnDsZSFDH"},
+        {"_id": "55c0c03886c2736a0bb44ad8", "_links": {"self": {"href": "https://sandbox.synapsepay.com/api/3/users/55c0c03886c2736a0bb44ad8"}},
+        "client": {"id": 844, "name": "SynapsePay*Sandbox"}, "doc_status": {"physical_doc":
+        "SUBMITTED|VALID", "virtual_doc": "SUBMITTED|VALID"}, "documents": [], "extra":
+        {"cip_tag": 1, "date_joined": 1438695480781, "extra_security": true, "is_business":
+        true, "supp_id": "122eddfgbeafrfvbbb"}, "is_hidden": false, "legal_names":
+        ["Bryan Keltner", "Test1 CO"], "logins": [{"email": "lauritapardo@gmail.com",
+        "scope": "READ_AND_WRITE"}], "permission": "UNVERIFIED", "phone_numbers":
+        ["218545332321"], "photos": [], "refresh_token": "SViFnvQNcb6qGypKwwPT7LTbudcpCFOvncafu3HW"},
+        {"_id": "55c0025586c27372b8bcac4b", "_links": {"self": {"href": "https://sandbox.synapsepay.com/api/3/users/55c0025586c27372b8bcac4b"}},
+        "client": {"id": 844, "name": "SynapsePay*Sandbox"}, "doc_status": {"physical_doc":
+        "SUBMITTED|VALID", "virtual_doc": "SUBMITTED|VALID"}, "documents": [], "extra":
+        {"cip_tag": 1, "date_joined": 1438646869119, "extra_security": true, "is_business":
+        false, "supp_id": "122eddfgbeafrfvbbb"}, "is_hidden": false, "legal_names":
+        ["Test User"], "logins": [{"email": "test1@synapsepay.com", "scope": "READ_AND_WRITE"}],
+        "permission": "UNVERIFIED", "phone_numbers": ["901.111.1111"], "photos": [],
+        "refresh_token": "3hXnxtK77YEmGZ7WPhIDoz9Yv4OiKiIZo8xgxtT7"}, {"_id": "55c00b9486c27372b8bcac51",
+        "_links": {"self": {"href": "https://sandbox.synapsepay.com/api/3/users/55c00b9486c27372b8bcac51"}},
+        "client": {"id": 844, "name": "SynapsePay*Sandbox"}, "doc_status": {"physical_doc":
+        "SUBMITTED|VALID", "virtual_doc": "SUBMITTED|VALID"}, "documents": [], "extra":
+        {"cip_tag": 1, "date_joined": 1438649236280, "extra_security": true, "is_business":
+        false, "supp_id": "122eddfgbeafrfvbbb"}, "is_hidden": false, "legal_names":
+        ["Test User"], "logins": [{"email": "test1@synapsepay.com", "scope": "READ_AND_WRITE"}],
+        "permission": "UNVERIFIED", "phone_numbers": ["901.111.1111"], "photos": [],
+        "refresh_token": "rPLDEipF72oPLkml7ieIFZWZW7G3XbpRRf58i9QZ"}, {"_id": "55c00d9786c27372b26f6ac9",
+        "_links": {"self": {"href": "https://sandbox.synapsepay.com/api/3/users/55c00d9786c27372b26f6ac9"}},
+        "client": {"id": 844, "name": "SynapsePay*Sandbox"}, "doc_status": {"physical_doc":
+        "SUBMITTED|VALID", "virtual_doc": "SUBMITTED|VALID"}, "documents": [], "extra":
+        {"cip_tag": 1, "date_joined": 1438649751495, "extra_security": true, "is_business":
+        false, "supp_id": "122eddfgbeafrfvbbb"}, "is_hidden": false, "legal_names":
+        ["Test User"], "logins": [{"email": "test1@synapsepay.com", "scope": "READ_AND_WRITE"}],
+        "permission": "UNVERIFIED", "phone_numbers": ["901.111.1111"], "photos": [],
+        "refresh_token": "z3WIT5APIYjPO29pdIUJtNvQE1cxWuE6zJWAHQmB"}, {"_id": "55c0157186c27372b26f6acd",
+        "_links": {"self": {"href": "https://sandbox.synapsepay.com/api/3/users/55c0157186c27372b26f6acd"}},
+        "client": {"id": 844, "name": "SynapsePay*Sandbox"}, "doc_status": {"physical_doc":
+        "SUBMITTED|VALID", "virtual_doc": "SUBMITTED|VALID"}, "documents": [], "extra":
+        {"cip_tag": 1, "date_joined": 1438651761915, "extra_security": true, "is_business":
+        false, "supp_id": "122eddfgbeafrfvbbb"}, "is_hidden": false, "legal_names":
+        ["Test User"], "logins": [{"email": "test1@synapsepay.com", "scope": "READ_AND_WRITE"}],
+        "permission": "UNVERIFIED", "phone_numbers": ["901.111.1111"], "photos": [],
+        "refresh_token": "i6JvtjoCMzjA12Qf2wfzRVAfQEVabDXjDtaYEFL3"}, {"_id": "55c015d386c27372b5940b51",
+        "_links": {"self": {"href": "https://sandbox.synapsepay.com/api/3/users/55c015d386c27372b5940b51"}},
+        "client": {"id": 844, "name": "SynapsePay*Sandbox"}, "doc_status": {"physical_doc":
+        "SUBMITTED|VALID", "virtual_doc": "SUBMITTED|VALID"}, "documents": [], "extra":
+        {"cip_tag": 1, "date_joined": 1438651859353, "extra_security": true, "is_business":
+        false, "supp_id": "122eddfgbeafrfvbbb"}, "is_hidden": false, "legal_names":
+        ["Test User"], "logins": [{"email": "test1@synapsepay.com", "scope": "READ_AND_WRITE"}],
+        "permission": "UNVERIFIED", "phone_numbers": ["901.111.1111"], "photos": [],
+        "refresh_token": "bnlDNT6V9Ykaz8z4gqgTGC763EOI5MJrD3ogDEIl"}, {"_id": "55c015f986c27372b8bcac59",
+        "_links": {"self": {"href": "https://sandbox.synapsepay.com/api/3/users/55c015f986c27372b8bcac59"}},
+        "client": {"id": 844, "name": "SynapsePay*Sandbox"}, "doc_status": {"physical_doc":
+        "SUBMITTED|VALID", "virtual_doc": "SUBMITTED|VALID"}, "documents": [], "extra":
+        {"cip_tag": 1, "date_joined": 1438651897669, "extra_security": true, "is_business":
+        false, "supp_id": "122eddfgbeafrfvbbb"}, "is_hidden": false, "legal_names":
+        ["Test User"], "logins": [{"email": "test1@synapsepay.com", "scope": "READ_AND_WRITE"}],
+        "permission": "UNVERIFIED", "phone_numbers": ["901.111.1111"], "photos": [],
+        "refresh_token": "9tDOGWLXYS9CuWzEnLyIp8zB9jbLGnNsIE7MTvSo"}, {"_id": "55d4a27586c27340712e618b",
+        "_links": {"self": {"href": "https://sandbox.synapsepay.com/api/3/users/55d4a27586c27340712e618b"}},
+        "client": {"id": 844, "name": "SynapsePay*Sandbox"}, "doc_status": {"physical_doc":
+        "SUBMITTED|VALID", "virtual_doc": "SUBMITTED|VALID"}, "documents": [], "extra":
+        {"cip_tag": 1, "date_joined": 1439998581159, "extra_security": true, "is_business":
+        false, "supp_id": ""}, "is_hidden": false, "legal_names": ["S"], "logins":
+        [{"email": "archana+doctor2@foundingminds.com", "scope": "READ_AND_WRITE"}],
+        "permission": "UNVERIFIED", "phone_numbers": [""], "photos": [], "refresh_token":
+        "hPiWhmHfcrOfjgmViqQrzXWQrHMbMLM7rS4NA3WF"}, {"_id": "55d4be8186c2737103f2b11b",
+        "_links": {"self": {"href": "https://sandbox.synapsepay.com/api/3/users/55d4be8186c2737103f2b11b"}},
+        "client": {"id": 844, "name": "SynapsePay*Sandbox"}, "doc_status": {"physical_doc":
+        "SUBMITTED|VALID", "virtual_doc": "SUBMITTED|VALID"}, "documents": [], "extra":
+        {"cip_tag": 1, "date_joined": 1440005761100, "extra_security": true, "is_business":
+        true, "supp_id": ""}, "is_hidden": false, "legal_names": ["nikunj mange"],
+        "logins": [{"email": "nikunj@visagepayroll.com", "scope": "READ_AND_WRITE"}],
+        "permission": "UNVERIFIED", "phone_numbers": ["4089170880"], "photos": [],
+        "refresh_token": "mHsY5imNtxQp61WkrGp8AsUXzibpdNZFueOlKEQb"}, {"_id": "55d596ac86c2735b45dead2c",
+        "_links": {"self": {"href": "https://sandbox.synapsepay.com/api/3/users/55d596ac86c2735b45dead2c"}},
+        "client": {"id": 844, "name": "SynapsePay*Sandbox"}, "doc_status": {"physical_doc":
+        "SUBMITTED|VALID", "virtual_doc": "SUBMITTED|VALID"}, "documents": [], "extra":
+        {"cip_tag": 1, "date_joined": 1440061100834, "extra_security": true, "is_business":
+        false, "supp_id": ""}, "is_hidden": false, "legal_names": ["S Pillai"], "logins":
+        [{"email": "archana+seeker2@foundingminds.com", "scope": "READ_AND_WRITE"}],
+        "permission": "UNVERIFIED", "phone_numbers": [""], "photos": [], "refresh_token":
+        "sg4tnKygeOZkuIz6Xwm1hDIHe8UCB8O2EmoWmVg4"}, {"_id": "55ba466a86c2730bb63d0aed",
+        "_links": {"self": {"href": "https://sandbox.synapsepay.com/api/3/users/55ba466a86c2730bb63d0aed"}},
+        "client": {"id": 844, "name": "SynapsePay*Sandbox"}, "doc_status": {"physical_doc":
+        "SUBMITTED|VALID", "virtual_doc": "SUBMITTED|VALID"}, "documents": [], "extra":
+        {"cip_tag": 1, "date_joined": 1438271082462, "extra_security": true, "is_business":
+        true, "supp_id": ""}, "is_hidden": false, "legal_names": ["Someone With Group"],
+        "logins": [{"email": "matt@someonewith.com", "scope": "READ_AND_WRITE"}],
+        "permission": "SEND-AND-RECEIVE", "phone_numbers": ["matt@someonewith.com"],
+        "photos": ["https://synapse_django.s3.amazonaws.com/sandbox_attachments/2015/07/30/e4fd22a6-2ac3-46fe-af33-949839fa7642.jpeg"],
+        "refresh_token": "ZQZh8N2oTex5hymAF88YzZcj5S7aIpIkcOJzBXT7"}, {"_id": "55ba4cd886c2732719559c5e",
+        "_links": {"self": {"href": "https://sandbox.synapsepay.com/api/3/users/55ba4cd886c2732719559c5e"}},
+        "client": {"id": 844, "name": "SynapsePay*Sandbox"}, "doc_status": {"physical_doc":
+        "SUBMITTED|VALID", "virtual_doc": "SUBMITTED|VALID"}, "documents": [], "extra":
+        {"cip_tag": 1, "date_joined": 1438272728923, "extra_security": true, "is_business":
+        true, "supp_id": ""}, "is_hidden": false, "legal_names": ["Aaron Bock"], "logins":
+        [{"email": "aaronb@bockhost.com", "scope": "READ_AND_WRITE"}], "permission":
+        "SEND-AND-RECEIVE", "phone_numbers": ["aaronb@bockhost.com"], "photos": [],
+        "refresh_token": "ggAC9GP4m1KegPMifiLuwnSnZpIR4ZQOzm8rxblu"}, {"_id": "55ba667686c2732719559c6d",
+        "_links": {"self": {"href": "https://sandbox.synapsepay.com/api/3/users/55ba667686c2732719559c6d"}},
+        "client": {"id": 844, "name": "SynapsePay*Sandbox"}, "doc_status": {"physical_doc":
+        "SUBMITTED|VALID", "virtual_doc": "SUBMITTED|VALID"}, "documents": [], "extra":
+        {"cip_tag": 1, "date_joined": 1438279286171, "extra_security": true, "is_business":
+        true, "supp_id": ""}, "is_hidden": false, "legal_names": [""], "logins": [{"email":
+        "xasan2006@gmail.com", "scope": "READ_AND_WRITE"}], "permission": "SEND-AND-RECEIVE",
+        "phone_numbers": ["xasan2006@gmail.com"], "photos": [], "refresh_token": "7UVo7qjjWMQlfQHjyQF6pYh3D89mxlch6PnUfsr9"},
+        {"_id": "55ba6f5c86c27341dcfbbd10", "_links": {"self": {"href": "https://sandbox.synapsepay.com/api/3/users/55ba6f5c86c27341dcfbbd10"}},
+        "client": {"id": 844, "name": "SynapsePay*Sandbox"}, "doc_status": {"physical_doc":
+        "SUBMITTED|VALID", "virtual_doc": "SUBMITTED|VALID"}, "documents": [], "extra":
+        {"cip_tag": 1, "date_joined": 1438281564931, "extra_security": true, "is_business":
+        false, "supp_id": "122eddfgbeafrfvbbb"}, "is_hidden": false, "legal_names":
+        ["Test User"], "logins": [{"email": "test1@synapsepay.com", "scope": "READ_AND_WRITE"}],
+        "permission": "UNVERIFIED", "phone_numbers": ["901.111.1111"], "photos": [],
+        "refresh_token": "bRDkjhMNcxGQYkVYIHg5WwqJzOhLuNDGDHQW55PO"}], "users_count":
+        5750}'
+    http_version: 
+  recorded_at: Tue, 12 Jul 2016 22:48:06 GMT
+recorded_with: VCR 3.0.3
