@@ -9,8 +9,7 @@ module SynapsePayRest
     attr_accessor :user_id
     attr_accessor :timeout
 
-    def initialize(options, base_url, user_id: nil, timeout: nil)
-      @timeout = timeout
+    def initialize(options, base_url, user_id: nil)
       @options = options
       user = '|%s' % options['fingerprint']
       if options.has_key?('oauth_key')
@@ -27,6 +26,7 @@ module SynapsePayRest
       @base_url = base_url
       # RestClient.log = 'stdout'
       @user_id = user_id
+      @timeout = options['timeout']
     end
 
     def update_headers(user_id: nil, oauth_key: nil, fingerprint: nil, client_id: nil, client_secret: nil, ip_address: nil)
