@@ -1,5 +1,6 @@
 $LOAD_PATH.unshift File.expand_path("../../lib", __FILE__)
 require "synapse_pay_rest"
+require "webmock/rspec"
 require "vcr"
 
 RSpec.configure do |c|
