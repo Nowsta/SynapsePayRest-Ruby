@@ -99,7 +99,11 @@ module SynapsePayRest
     end
 
     def well_formed?(code)
-      [400, 401, 404, 409].include?(code)
+      # synapse docs lists 500 as a well formed, however, on 1 July 2016
+      # we received:
+      #   <h1>Server Error (500)</h1>
+      # when testing throttling.
+      [400, 401, 402, 404, 409, 429].include?(code)
     end
 
     def messages
@@ -113,7 +117,8 @@ module SynapsePayRest
 
     def format_error(code, message)
       {
-        "error_code" => code.to_s,
+        "error_code" => "500",
+        "http_code" => code.to_s,
         "error" => { "en" => message },
         "success" => false,
       }.to_json
