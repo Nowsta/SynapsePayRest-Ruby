@@ -1,4 +1,5 @@
 require 'rest-client'
+require 'json'
 
 module SynapsePayRest
   class HTTPClient
