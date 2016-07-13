@@ -7,7 +7,7 @@ RSpec.describe SynapsePayRest::HTTPClient do
   let(:fingerprint) { "e716990e50b67a1177736960b6357524b22090ccab093d068b3d7a18dbde3f4c" }
 
   let(:url_base) { "https://sandbox.synapsepay.com/api/3" }
-  let(:path) { "" }
+  let(:path) { "/users" }
   let(:base_params) do
     {
       "fingerprint" => fingerprint,
@@ -42,7 +42,7 @@ RSpec.describe SynapsePayRest::HTTPClient do
           # https://bugsnag.com/nowsta-1/pay/errors/576c0020e8a4560f523354b3
           body = '<html><head><title>504 Gateway Time-out</title></head>' \
             '<body><h1>504 Gateway Time-out</h1></body></html>'
-          stub_request(:any, url_base).to_return(body: body, status: 504)
+          stub_request(:any, /#{url_base}/).to_return(body: body, status: 504)
         end
 
         it { expect(result["http_code"]).to eq("504") }
@@ -70,8 +70,6 @@ RSpec.describe SynapsePayRest::HTTPClient do
     end
 
     context "happy path", :vcr do
-      let(:path) { "/users" }
-
       it { expect(result["error_code"]).to eq("0") }
       it { expect(result["success"]).to eq(true) }
     end
