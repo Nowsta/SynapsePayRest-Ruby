@@ -15,7 +15,7 @@ module SynapsePayRest
     attr_accessor :nodes
     attr_accessor :trans
 
-    def initialize(options: raise("options is required"), user_id: nil, timeout: nil)
+    def initialize(options: raise("options is required"), user_id: nil)
       base_url = 'https://synapsepay.com/api/3'
       if options.has_key?('development_mode')
         if options['development_mode']
@@ -23,7 +23,7 @@ module SynapsePayRest
         end
       end
 
-      @client = HTTPClient.new options, base_url, user_id: user_id, timeout: timeout
+      @client = HTTPClient.new options, base_url, user_id: user_id
       @users = Users.new @client
       @nodes = Nodes.new @client
       @trans = Trans.new @client
