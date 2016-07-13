@@ -6,6 +6,7 @@ require "vcr"
 RSpec.configure do |c|
   c.disable_monkey_patching!
   c.color = true
+  c.order = :random
 end
 
 VCR.configure do |c|
