@@ -75,15 +75,38 @@ RSpec.describe SynapsePayRest::HTTPClient do
     end
   end
 
-  # describe "#delete" do
-  #   it_calls_correct_rest_method :delete
-  # end
-  #
-  # describe "#post" do
-  #   it_calls_correct_rest_method :post, payload: {}
-  # end
-  #
-  # describe "#patch" do
-  #   it_calls_correct_rest_method :patch, payload: {}
-  # end
+  # since all the error testing id done by the get request, we just need
+  # to check that the rest client is getting called with the correct inputs.
+  def self.it_makes_request_with_body(method:)
+    it "makes request with with body" do
+      response = { "expected" => "response" }
+      allow(RestClient::Request).to receive(:execute).and_return(response.to_json)
+
+      payload = { "expected" => "payload" }
+      expect(client.send(method, path, payload)).to eq(response)
+      expect(RestClient::Request).
+        to have_received(:execute).
+        with(hash_including(method: method, url: url_base + path, payload: payload.to_json))
+    end
+  end
+
+  describe "#post" do
+    it_makes_request_with_body method: :post
+  end
+
+  describe "#patch" do
+    it_makes_request_with_body method: :patch
+  end
+
+  describe "#delete" do
+    it "makes delete request" do
+      response = { "expected" => "response" }
+      allow(RestClient::Request).to receive(:execute).and_return(response.to_json)
+
+      expect(client.delete(path)).to eq(response)
+      expect(RestClient::Request).
+        to have_received(:execute).
+        with(hash_including(method: :delete, url: url_base + path))
+    end
+  end
 end
