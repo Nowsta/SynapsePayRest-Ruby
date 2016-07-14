@@ -54,10 +54,9 @@ RSpec.describe SynapsePayRest::HTTPClient do
       context "when client timeout is reached" do
         before(:each) do
           msg = "Timed out connecting to server."
-          allow(RestClient::Request).
-            to receive(:execute).
-            with(hash_including(timeout: timeout)).
-            and_raise(RestClient::Exceptions::ReadTimeout.new(msg))
+          allow(RestClient::Request).to receive(:execute).with(
+            hash_including(timeout: timeout)
+          ).and_raise(RestClient::Exceptions::ReadTimeout.new(msg))
         end
         let(:timeout) { 0.4 }
         let(:params) { base_params.merge("timeout" => timeout) }
@@ -84,9 +83,9 @@ RSpec.describe SynapsePayRest::HTTPClient do
 
       payload = { "expected" => "payload" }
       expect(client.send(method, path, payload)).to eq(response)
-      expect(RestClient::Request).
-        to have_received(:execute).
-        with(hash_including(method: method, url: url_base + path, payload: payload.to_json))
+      expect(RestClient::Request).to have_received(:execute).with(
+        hash_including(method: method, url: url_base + path, payload: payload.to_json)
+      )
     end
   end
 
@@ -104,9 +103,9 @@ RSpec.describe SynapsePayRest::HTTPClient do
       allow(RestClient::Request).to receive(:execute).and_return(response.to_json)
 
       expect(client.delete(path)).to eq(response)
-      expect(RestClient::Request).
-        to have_received(:execute).
-        with(hash_including(method: :delete, url: url_base + path))
+      expect(RestClient::Request).to have_received(:execute).with(
+        hash_including(method: :delete, url: url_base + path)
+      )
     end
   end
 end
