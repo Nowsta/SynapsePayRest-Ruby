@@ -1,3 +1,5 @@
+require "synapse_pay_rest/version"
+
 # Basic wrapper around the the requests library.
 require_relative "synapse_pay_rest/http_client"
 # Assign all the api classes

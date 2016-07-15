@@ -7,9 +7,27 @@ Simple API wrapper for SynapsePay REST V3 API.  This wrapper aims to handle the 
 
 Check out the samples.md and our API documentation(http://docs.synapsepay.com/v3.1) for examples.
 
+
 ## Installation
 
-gem install synapse_pay_rest
+Let `path-to-nowsta-synapse-client.git` be the github address for nowsta's fork of
+the synapse rest client.  Add this line to your application's Gemfile:
+
+```ruby
+gem 'synapse_pay_rest', git: 'path-to-nowsta-synapse-client.git'
+```
+
+And then execute:
+
+    $ bundle
+
+
+## Development
+
+After checking out the repo, run `bin/setup` to install dependencies. Then, run
+`be rspec` to run the tests. You can also run `bin/console` for an interactive
+prompt that will allow you to experiment.
+
 
 ## License
 

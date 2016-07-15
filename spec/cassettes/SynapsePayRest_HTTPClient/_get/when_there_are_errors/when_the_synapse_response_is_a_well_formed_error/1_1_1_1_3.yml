@@ -1,0 +1,51 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://sandbox.synapsepay.com/api/3/users/xyz
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - application/json
+      Accept-Encoding:
+      - gzip, deflate
+      User-Agent:
+      - rest-client/2.0.0 (darwin15.0.0 x86_64) ruby/2.2.3p173
+      Content-Type:
+      - application/json
+      X-Sp-Gateway:
+      - e3f19e4bd4022c86e7f2|11c94ba6bad74d24a0158bc707f0fc19a86dc08f
+      X-Sp-User:
+      - "|e716990e50b67a1177736960b6357524b22090ccab093d068b3d7a18dbde3f4c"
+      X-Sp-User-Ip:
+      - 107.170.246.225
+      Host:
+      - sandbox.synapsepay.com
+  response:
+    status:
+      code: 404
+      message: NOT FOUND
+    headers:
+      Server:
+      - nginx
+      Date:
+      - Tue, 12 Jul 2016 22:24:25 GMT
+      Content-Type:
+      - application/json
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Vary:
+      - Accept
+      X-Frame-Options:
+      - ALLOWALL
+    body:
+      encoding: UTF-8
+      string: '{"error": {"en": "user does not exist"}, "error_code": "404", "http_code":
+        "404", "success": false}'
+    http_version: 
+  recorded_at: Tue, 12 Jul 2016 22:24:25 GMT
+recorded_with: VCR 3.0.3

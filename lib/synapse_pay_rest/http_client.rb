@@ -1,4 +1,5 @@
 require 'rest-client'
+require 'json'
 
 module SynapsePayRest
   class HTTPClient
@@ -7,10 +8,11 @@ module SynapsePayRest
     attr_accessor :options
     attr_accessor :headers
     attr_accessor :user_id
+    attr_accessor :timeout
 
     def initialize(options, base_url, user_id: nil)
       @options = options
-      user = '|%s' %options['fingerprint']
+      user = '|%s' % options['fingerprint']
       if options.has_key?('oauth_key')
         user = '%s|%s' % [options['oauth_key'], options['fingerprint']]
       end
@@ -25,6 +27,7 @@ module SynapsePayRest
       @base_url = base_url
       # RestClient.log = 'stdout'
       @user_id = user_id
+      @timeout = options['timeout']
     end
 
     def update_headers(user_id: nil, oauth_key: nil, fingerprint: nil, client_id: nil, client_secret: nil, ip_address: nil)
@@ -52,76 +55,73 @@ module SynapsePayRest
 
     def post(path, payload)
       url = base_url + path
-      response = with_error_handling { RestClient.post(url, payload.to_json, @headers) }
+      response = with_error_handling do
+        make_request(method: :post, url: url, payload: payload.to_json)
+      end
       JSON.parse(response)
     end
 
     def patch(path, payload)
       url = base_url + path
-      response = with_error_handling { RestClient.patch(url, payload.to_json, @headers) }
+      response = with_error_handling do
+        make_request(method: :patch, url: url, payload: payload.to_json)
+      end
       JSON.parse(response)
     end
 
     def get(path)
       url = base_url + path
-      response = with_error_handling { RestClient.get(url, @headers) }
+      response = with_error_handling { make_request(method: :get, url: url) }
       JSON.parse(response)
     end
 
     def delete(path)
       url = base_url + path
-      response = with_error_handling { RestClient.delete(url, @headers) }
+      response = with_error_handling { make_request(method: :delete, url: url) }
       JSON.parse(response)
     end
 
     private
 
+    def make_request(options)
+      base_options = { headers: @headers }
+      base_options[:timeout] = timeout if timeout
+      RestClient::Request.execute(base_options.merge(options))
+    end
+
     def with_error_handling
       yield
-    rescue => e
-      # By the way, this is a really bad idea.
-      # See: https://www.relishapp.com/womply/ruby-style-guide/docs/exceptions
-      # The exceptions should be enumerated. Not all exceptions are going
-      # to be parsable by JSON. The only one that should be captured are the
-      # are the HTTP Client responses.
-      case e.response.code
-      when 400
-        return e.response
-      when 401
-        return e.response
-      when 409
-        return e.response
-      when 405
-        return handle_method_not_allowed()
-      when 500
-        return handle_internal_server_error()
-      when 502
-        return handle_gateway_error()
-      when 504
-        return handle_timeout_error()
-      else
-        return handle_unknown_error()
-      end
+    rescue RestClient::RequestTimeout => e
+      format_error(504, messages[:timeout])
+    rescue RestClient::ExceptionWithResponse => e
+      code = e.response.code
+      well_formed?(code) ? e.response : format_error(code, messages[:error])
     end
 
-    def handle_internal_server_error()
-      return {'success' => false, 'reason' => 'Our payments service is currently down. Please try again in a minute.'}.to_json
+    def well_formed?(code)
+      # synapse docs lists 500 as a well formed, however, on 1 July 2016
+      # we received:
+      #   <h1>Server Error (500)</h1>
+      # when testing throttling.
+      [400, 401, 402, 404, 409, 429].include?(code)
     end
 
-    def handle_method_not_allowed()
-      return {'success' => false, 'reason' => 'The method is not allowed. Check your id parameters.'}.to_json
+    def messages
+      map = {
+        timeout: "Our payments service was unresponsive.",
+        error: "Error occurred with our payments service.",
+      }
+      map.default = "An unhanded error occurred with our payments service."
+      map
     end
 
-    def handle_gateway_error()
-      return {'success' => false, 'reason' => 'Our payments service is currently down. Please try again in a minute.'}.to_json
-    end
-
-    def handle_timeout_error()
-      return {'success' => false, 'reason' => 'A timeout has occurred.'}.to_json
-    end
-
-    def handle_unknown_error()
-      return {'success' => false, 'reason' => 'An unexpected error has occured. Please try again in a minute.'}.to_json
+    def format_error(code, message)
+      {
+        "error_code" => "500",
+        "http_code" => code.to_s,
+        "error" => { "en" => message },
+        "success" => false,
+      }.to_json
     end
   end
 end
