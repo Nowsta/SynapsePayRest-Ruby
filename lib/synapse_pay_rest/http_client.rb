@@ -53,6 +53,10 @@ module SynapsePayRest
       end
     end
 
+    def add_idempotency_key(idempotency_key:)
+      @headers = @headers.merge('X-SP-IDEMPOTENCY-KEY' => idempotency_key)
+    end
+
     def post(path, payload)
       url = base_url + path
       response = with_error_handling do
