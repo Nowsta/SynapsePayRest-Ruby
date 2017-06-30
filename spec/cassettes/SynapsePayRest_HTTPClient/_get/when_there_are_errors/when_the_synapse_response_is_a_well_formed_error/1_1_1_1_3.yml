@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: get
-    uri: https://sandbox.synapsepay.com/api/3/users/xyz
+    uri: https://uat-api.synapsefi.com/v3.1/users/xyz
     body:
       encoding: US-ASCII
       string: ''
@@ -12,40 +12,46 @@ http_interactions:
       Accept-Encoding:
       - gzip, deflate
       User-Agent:
-      - rest-client/2.0.0 (darwin15.0.0 x86_64) ruby/2.2.3p173
+      - rest-client/2.0.0 (darwin15.5.0 x86_64) ruby/2.3.0p0
       Content-Type:
       - application/json
       X-Sp-Gateway:
-      - e3f19e4bd4022c86e7f2|11c94ba6bad74d24a0158bc707f0fc19a86dc08f
+      - 3na4f1ZVSIzPE98H544F|RwDKrz5DfAPamwnkI7buS17UD3ivbFBYmUkyDMX2
       X-Sp-User:
       - "|e716990e50b67a1177736960b6357524b22090ccab093d068b3d7a18dbde3f4c"
       X-Sp-User-Ip:
       - 107.170.246.225
       Host:
-      - sandbox.synapsepay.com
+      - uat-api.synapsefi.com
   response:
     status:
       code: 404
       message: NOT FOUND
     headers:
-      Server:
-      - nginx
       Date:
-      - Tue, 12 Jul 2016 22:24:25 GMT
+      - Fri, 30 Jun 2017 05:19:47 GMT
       Content-Type:
       - application/json
       Transfer-Encoding:
       - chunked
       Connection:
       - keep-alive
-      Vary:
-      - Accept
-      X-Frame-Options:
-      - ALLOWALL
+      Set-Cookie:
+      - __cfduid=dc114b67be0e1c6be0c5befe301a2a36b1498799984; expires=Sat, 30-Jun-18
+        05:19:44 GMT; path=/; domain=.synapsefi.com; HttpOnly
+      Server:
+      - cloudflare-nginx
+      Cf-Ray:
+      - 376eac20ed487a29-SEA
+      Content-Encoding:
+      - gzip
     body:
-      encoding: UTF-8
-      string: '{"error": {"en": "user does not exist"}, "error_code": "404", "http_code":
-        "404", "success": false}'
+      encoding: ASCII-8BIT
+      string: !binary |-
+        H4sIAAAAAAAAA2SOsQ6CMBRF937FTRcWMEqY+AMnJ2fzWp5SU1vSPgxI+HcD
+        g4vjOWc5iwI0pxSTbrEoYMOgW+hrIOMZEuGjJWFE82QrBxTT/CngMkIUEN7k
+        XYfLHs9dCSd4jVlgGIRTXZlZGC4MoyAmEOqmsj0lssIJPU/Iklx4aAWs5e/m
+        ZmPH20ZzbPSue5Hh3+bRWs5Zt7iTz6zWLwAAAP//AwCTO0jY0QAAAA==
     http_version: 
-  recorded_at: Tue, 12 Jul 2016 22:24:25 GMT
+  recorded_at: Fri, 30 Jun 2017 05:19:47 GMT
 recorded_with: VCR 3.0.3

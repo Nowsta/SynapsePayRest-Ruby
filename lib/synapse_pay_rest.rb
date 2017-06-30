@@ -16,10 +16,10 @@ module SynapsePayRest
     attr_accessor :trans
 
     def initialize(options: raise("options is required"), user_id: nil)
-      base_url = 'https://synapsepay.com/api/3'
+      base_url = 'https://api.synapsefi.com/v3.1'
       if options.has_key?('development_mode')
         if options['development_mode']
-          base_url = 'https://sandbox.synapsepay.com/api/3'
+          base_url = 'https://uat-api.synapsefi.com/v3.1'
         end
       end
 
