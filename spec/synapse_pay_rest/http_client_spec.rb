@@ -1,12 +1,12 @@
 require "spec_helper"
 
 RSpec.describe SynapsePayRest::HTTPClient do
-  let(:client_id) { "e3f19e4bd4022c86e7f2" }
-  let(:client_secret) { "11c94ba6bad74d24a0158bc707f0fc19a86dc08f" }
+  let(:client_id) { "3na4f1ZVSIzPE98H544F" }
+  let(:client_secret) { "RwDKrz5DfAPamwnkI7buS17UD3ivbFBYmUkyDMX2" }
   let(:ip_address) { "107.170.246.225" }
   let(:fingerprint) { "e716990e50b67a1177736960b6357524b22090ccab093d068b3d7a18dbde3f4c" }
 
-  let(:url_base) { "https://sandbox.synapsepay.com/api/3" }
+  let(:url_base) { "https://uat-api.synapsefi.com/v3.1" }
   let(:path) { "/users" }
   let(:base_params) do
     {
